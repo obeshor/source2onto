@@ -1,75 +1,75 @@
 # Source2Onto - Collaborative Ontology Engineering Tool
 
-Source2Onto est une plateforme collaborative web permettant l'ingénierie d'ontologies à partir de codes sources. Elle permet à plusieurs utilisateurs de travailler simultanément sur l'extraction de termes, la modélisation de classes et d'axiomes, tout en communiquant en temps réel.
+Source2Onto is a collaborative web platform designed for ontology engineering derived from source code. It allows multiple users to work simultaneously on term extraction, class modeling, and axiom definition, all while communicating in real-time.
 
-## Fonctionnalités Principales
+## Key Features
 
-- **Éditeur Collaboratif en Temps Réel** : Modification simultanée de documents avec visualisation des curseurs des autres participants (via CodeMirror et Socket.io).
-- **Extraction d'Ontologies** : Configuration des langages (Java, PHP, JavaScript) et des modèles pour l'extraction automatique de concepts, propriétés de données et propriétés d'objets.
-- **Gestion de Projets** : Création de projets dédiés, invitation de collaborateurs et suivi de l'avancement.
-- **Chat Intégré** : Messagerie instantanée pour faciliter la collaboration entre les membres d'un projet.
-- **Tableau de Bord et Métriques** : Visualisation des statistiques du projet (nombre de classes, propriétés, individus, axiomes, etc.).
-- **Exportation Multi-format** : Possibilité d'exporter les résultats aux formats TXT, OWL et RDF.
+- **Real-Time Collaborative Editor**: Simultaneous document editing with visible cursors for other participants (powered by CodeMirror and Socket.io).
+- **Ontology Extraction**: Configuration for multiple languages (Java, PHP, JavaScript) and models for the automatic extraction of concepts, data properties, and object properties.
+- **Project Management**: Creation of dedicated projects, collaborator invitations, and progress tracking.
+- **Integrated Chat**: Instant messaging to facilitate communication between project members.
+- **Dashboard and Metrics**: Visualization of project statistics (number of classes, properties, individuals, axioms, etc.).
+- **Multi-format Export**: Ability to export results in TXT, OWL, and RDF formats.
 
-## Technologies Utilisées
+## Tech Stack
 
-- **Backend** : Node.js avec le framework Express.
-- **Base de données** : RethinkDB (choisie pour ses capacités de push en temps réel).
-- **Temps Réel** : Socket.io pour la synchronisation de l'éditeur et du chat.
-- **Frontend** : EJS (moteur de templates), jQuery, Bootstrap 4, CodeMirror (éditeur de code).
-- **Gestion de dépendances** : NPM pour le backend et Bower pour le frontend.
+- **Backend**: Node.js with the Express framework.
+- **Database**: RethinkDB (chosen for its real-time push capabilities).
+- **Real-Time**: Socket.io for editor and chat synchronization.
+- **Frontend**: EJS (template engine), jQuery, Bootstrap 4, CodeMirror (code editor).
+- **Dependency Management**: NPM for the backend and Bower for the frontend.
 
-## Structure du Projet
+## Project Structure
 
 ```text
-├── server.js               # Point d'entrée du serveur HTTP et Socket.io
+├── server.js                # Entry point for HTTP and Socket.io server
 ├── src/
-│   ├── app.js              # Configuration de l'application Express et des routes
-│   ├── controller/         # Logique métier (Projets, Extraction, Compte, etc.)
-│   ├── repository/         # Accès aux données (RethinkDB)
-│   ├── routes/             # Définition des points d'accès (API et Vues)
-│   ├── io/                 # Gestion des événements Socket.io (Chat, Extraction)
-│   ├── middleware/         # Authentification, gestion Flash, connexion DB
-│   ├── views/              # Templates EJS (Interface utilisateur)
-│   └── public/             # Assets statiques (CSS, JS, Images)
-├── bower_components/       # Dépendances frontend (CodeMirror, jQuery)
-└── package.json            # Dépendances backend
+│   ├── app.js               # Express application configuration and routes
+│   ├── controller/          # Business logic (Projects, Extraction, Account, etc.)
+│   ├── repository/          # Data access (RethinkDB)
+│   ├── routes/              # Endpoint definitions (API and Views)
+│   ├── io/                  # Socket.io event handling (Chat, Extraction)
+│   ├── middleware/          # Authentication, Flash handling, DB connection
+│   ├── views/               # EJS templates (User Interface)
+│   └── public/              # Static assets (CSS, JS, Images)
+├── bower_components/        # Frontend dependencies (CodeMirror, jQuery)
+└── package.json             # Backend dependencies
 ```
 
 ## Installation
 
-### Prérequis
+### Prerequisites
 
-1.  **Node.js** installé sur votre machine.
-2.  **RethinkDB** installé et en cours d'exécution (port par défaut : 28015).
+1.  **Node.js** installed on your machine.
+2.  **RethinkDB** installed and running (default port: 28015).
 
 ### Étapes
 
-1.  Clonez le dépôt :
+1.  Clone the repository :
     ```bash
     git clone <url-du-depot>
     cd source2onto
     ```
 
-2.  Installez les dépendances backend :
+2.  Install backend dependencies :
     ```bash
     npm install
     ```
 
-3.  Installez les dépendances frontend (si nécessaire, via bower) :
+3.  Install frontend dependencies (if necessary, via bower) :
     ```bash
     bower install
     ```
 
-4.  Assurez-vous que RethinkDB est lancé. Au premier démarrage, l'application créera automatiquement les tables nécessaires (`users`, `edit`, `projet`, `chat`, `associer`) dans la base de données `test`.
+4.  Ensure RethinkDB is running. Upon the first launch, the application will automatically create the necessary tables (`users`, `edit`, `projet`, `chat`, `associer`) in the `test` database.
 
-## Lancement
+## Usage
 
-Pour démarrer l'application :
+To start the application :
 ```bash
 npm start
 ```
-L'application sera accessible sur `http://localhost:3000`.
+The application will be accessible at `http://localhost:3000`.
 
-## Auteurs
-Projet développé dans le cadre d'un outil d'ingénierie ontologique collaborative.
+## Authors
+Project developed as a collaborative ontological engineering tool.
